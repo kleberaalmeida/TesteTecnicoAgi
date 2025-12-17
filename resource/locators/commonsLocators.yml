@@ -1,0 +1,4 @@
+btn:
+  lupa_pesquisar: xpath=//*[@id="ast-desktop-header"]//div[3]/div[2]
+input:
+  adicionar_informacao: id=search-field 

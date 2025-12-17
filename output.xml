@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0.1 (Python 3.12.5 on win32)" generated="2025-12-16T20:15:37.783939" rpa="false" schemaversion="5">
+<suite id="s1" name="Web" source="C:\Workspace\Robot\Web">
+<suite id="s1-s1" name="Test" source="C:\Workspace\Robot\Web\test">
+<suite id="s1-s1-s1" name="campoPesquisa" source="C:\Workspace\Robot\Web\test\campoPesquisa.robot">
+<test id="s1-s1-s1-t1" name="Validar Campo Pesquisa" line="7">
+<kw name="Abrir Browser" owner="openBrowser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:15:38.970868" level="INFO">Opening browser 'edge' to base url 'https://blog.agibank.com.br/'.</msg>
+<arg>url=https://blog.agibank.com.br/</arg>
+<arg>browser=edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-12-16T20:15:38.969868" elapsed="11.032912"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-12-16T20:15:50.003782" elapsed="1.054453"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:15:38.965869" elapsed="12.093366"/>
+</kw>
+<kw name="Realizar Pesquisa" owner="commons">
+<kw name="Wait And Click Element Search" owner="customKeywords">
+<try>
+<branch type="TRY">
+<while condition="${True}" limit="10">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:15:51.069236" level="INFO">Clicking element 'xpath=//*[@id="ast-desktop-header"]//div[3]/div[2]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:15:51.067235" elapsed="0.391979"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:15:57.632659" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-116.png"&gt;&lt;img src="selenium-screenshot-116.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-12-16T20:15:57.632659" level="FAIL">Element 'id=search-field' not visible after 5 seconds.</msg>
+<arg>${input.adicionar_informacao}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-12-16T20:15:51.461214" elapsed="6.180445">Element 'id=search-field' not visible after 5 seconds.</status>
+</kw>
+<msg time="2025-12-16T20:15:57.642659" level="INFO">${status} = False</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${input.adicionar_informacao}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:15:51.460212" elapsed="6.182447"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="NOT RUN" start="2025-12-16T20:15:57.643658" elapsed="0.000000"/>
+</break>
+<status status="NOT RUN" start="2025-12-16T20:15:57.642659" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:15:57.642659" elapsed="0.001999"/>
+</if>
+<status status="PASS" start="2025-12-16T20:15:51.066235" elapsed="6.578423"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:15:57.646658" level="INFO">Clicking element 'xpath=//*[@id="ast-desktop-header"]//div[3]/div[2]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:15:57.645659" elapsed="0.168989"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input.adicionar_informacao}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-16T20:15:57.814648" elapsed="0.058996"/>
+</kw>
+<msg time="2025-12-16T20:15:57.874646" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${input.adicionar_informacao}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:15:57.814648" elapsed="0.059998"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="PASS" start="2025-12-16T20:15:57.875645" elapsed="0.000000"/>
+</break>
+<status status="PASS" start="2025-12-16T20:15:57.875645" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:15:57.874646" elapsed="0.001998"/>
+</if>
+<status status="PASS" start="2025-12-16T20:15:57.644658" elapsed="0.231986"/>
+</iter>
+<status status="PASS" start="2025-12-16T20:15:51.066235" elapsed="6.810409"/>
+</while>
+<status status="PASS" start="2025-12-16T20:15:51.066235" elapsed="6.810409"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Fail" owner="BuiltIn">
+<arg>Erro ao preencher o campo ${locator}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-12-16T20:15:57.876644" elapsed="0.001001"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T20:15:57.876644" elapsed="0.001001"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:15:51.066235" elapsed="6.811410"/>
+</try>
+<arg>${btn.lupa_pesquisar}</arg>
+<status status="PASS" start="2025-12-16T20:15:51.063236" elapsed="6.814409"/>
+</kw>
+<kw name="Wait And Input Text" owner="customKeywords">
+<try>
+<branch type="TRY">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-16T20:15:57.879645" elapsed="0.046997"/>
+</kw>
+<while condition="${True}" limit="10">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:15:57.929642" level="INFO">Typing text 'Produtos' into text field 'id=search-field'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:15:57.928642" elapsed="0.488971"/>
+</kw>
+<msg time="2025-12-16T20:15:58.418613" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Input Text</arg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:15:57.927643" elapsed="0.490970"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="PASS" start="2025-12-16T20:15:58.419613" elapsed="0.000000"/>
+</break>
+<status status="PASS" start="2025-12-16T20:15:58.419613" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:15:58.419613" elapsed="0.001000"/>
+</if>
+<status status="PASS" start="2025-12-16T20:15:57.926642" elapsed="0.493971"/>
+</iter>
+<status status="PASS" start="2025-12-16T20:15:57.926642" elapsed="0.493971"/>
+</while>
+<status status="PASS" start="2025-12-16T20:15:57.879645" elapsed="0.540968"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Fail" owner="BuiltIn">
+<arg>Erro ao preencher o campo ${locator}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-12-16T20:15:58.421613" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T20:15:58.420613" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:15:57.879645" elapsed="0.541968"/>
+</try>
+<arg>${input.adicionar_informacao}</arg>
+<arg>${informacao}</arg>
+<status status="PASS" start="2025-12-16T20:15:57.878644" elapsed="0.543968"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>${input.adicionar_informacao}</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:15:58.422612" elapsed="1.991882"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:15:51.062235" elapsed="9.353260"/>
+</kw>
+<kw name="Validar Produtos" owner="produtos">
+<kw name="Wait Element Should Contain Text" owner="customKeywords">
+<try>
+<branch type="TRY">
+<while condition="${True}" limit="10">
+<iter>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>300</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-16T20:16:00.429494" elapsed="0.297982"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${expectedText}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-12-16T20:16:00.728476" elapsed="0.118993"/>
+</kw>
+<msg time="2025-12-16T20:16:00.847469" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Contains</arg>
+<arg>${locator}</arg>
+<arg>${expectedText}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:16:00.728476" elapsed="0.118993"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="PASS" start="2025-12-16T20:16:00.848469" elapsed="0.000000"/>
+</break>
+<status status="PASS" start="2025-12-16T20:16:00.847469" elapsed="0.001000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:00.847469" elapsed="0.001000"/>
+</if>
+<status status="PASS" start="2025-12-16T20:16:00.428495" elapsed="0.419974"/>
+</iter>
+<status status="PASS" start="2025-12-16T20:16:00.428495" elapsed="0.419974"/>
+</while>
+<status status="PASS" start="2025-12-16T20:16:00.428495" elapsed="0.420973"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Fail" owner="BuiltIn">
+<arg>Erro ao preencher o campo ${locator}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-12-16T20:16:00.850469" elapsed="0.001001"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T20:16:00.849468" elapsed="0.002002"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:00.428495" elapsed="0.422975"/>
+</try>
+<arg>${text.validar_texto_produtos}</arg>
+<arg>${textoPaginaProdutos}</arg>
+<status status="PASS" start="2025-12-16T20:16:00.426495" elapsed="0.425975"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:16:00.423494" elapsed="0.428976"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-12-16T20:16:00.857468" elapsed="7.424337"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:15:38.963869" elapsed="29.318935"/>
+</test>
+<test id="s1-s1-s1-t2" name="Validar Pagina do Post Produtos" line="11">
+<kw name="Abrir Browser" owner="openBrowser" type="SETUP">
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:16:08.287803" level="INFO">Opening browser 'edge' to base url 'https://blog.agibank.com.br/'.</msg>
+<arg>url=https://blog.agibank.com.br/</arg>
+<arg>browser=edge</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2025-12-16T20:16:08.287803" elapsed="4.077710"/>
+</kw>
+<kw name="Maximize Browser Window" owner="SeleniumLibrary">
+<doc>Maximizes current browser window.</doc>
+<status status="PASS" start="2025-12-16T20:16:12.365513" elapsed="0.178989"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:16:08.286803" elapsed="4.259701"/>
+</kw>
+<kw name="Realizar Pesquisa" owner="commons">
+<kw name="Wait And Click Element Search" owner="customKeywords">
+<try>
+<branch type="TRY">
+<while condition="${True}" limit="10">
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:16:12.558501" level="INFO">Clicking element 'xpath=//*[@id="ast-desktop-header"]//div[3]/div[2]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:16:12.557501" elapsed="0.395977"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:16:18.466395" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-117.png"&gt;&lt;img src="selenium-screenshot-117.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg time="2025-12-16T20:16:18.466395" level="FAIL">Element 'id=search-field' not visible after 5 seconds.</msg>
+<arg>${input.adicionar_informacao}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="FAIL" start="2025-12-16T20:16:12.955482" elapsed="5.511913">Element 'id=search-field' not visible after 5 seconds.</status>
+</kw>
+<msg time="2025-12-16T20:16:18.468427" level="INFO">${status} = False</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${input.adicionar_informacao}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:16:12.954478" elapsed="5.513949"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="NOT RUN" start="2025-12-16T20:16:18.468427" elapsed="0.000000"/>
+</break>
+<status status="NOT RUN" start="2025-12-16T20:16:18.468427" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:18.468427" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-12-16T20:16:12.555500" elapsed="5.912927"/>
+</iter>
+<iter>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:16:18.469425" level="INFO">Clicking element 'xpath=//*[@id="ast-desktop-header"]//div[3]/div[2]'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:16:18.469425" elapsed="0.110975"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${input.adicionar_informacao}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-16T20:16:18.580400" elapsed="0.036985"/>
+</kw>
+<msg time="2025-12-16T20:16:18.617385" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Is Visible</arg>
+<arg>${input.adicionar_informacao}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:16:18.580400" elapsed="0.036985"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="PASS" start="2025-12-16T20:16:18.618385" elapsed="0.000000"/>
+</break>
+<status status="PASS" start="2025-12-16T20:16:18.618385" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:18.618385" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-12-16T20:16:18.468427" elapsed="0.149958"/>
+</iter>
+<status status="PASS" start="2025-12-16T20:16:12.555500" elapsed="6.062885"/>
+</while>
+<status status="PASS" start="2025-12-16T20:16:12.555500" elapsed="6.062885"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Fail" owner="BuiltIn">
+<arg>Erro ao preencher o campo ${locator}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-12-16T20:16:18.619385" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T20:16:18.619385" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:12.555500" elapsed="6.063885"/>
+</try>
+<arg>${btn.lupa_pesquisar}</arg>
+<status status="PASS" start="2025-12-16T20:16:12.552502" elapsed="6.066883"/>
+</kw>
+<kw name="Wait And Input Text" owner="customKeywords">
+<try>
+<branch type="TRY">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-16T20:16:18.622398" elapsed="0.036984"/>
+</kw>
+<while condition="${True}" limit="10">
+<iter>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Input Text" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:16:18.661382" level="INFO">Typing text 'Produtos' into text field 'id=search-field'.</msg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:16:18.660382" elapsed="0.235990"/>
+</kw>
+<msg time="2025-12-16T20:16:18.896372" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Input Text</arg>
+<arg>${locator}</arg>
+<arg>${text}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:16:18.660382" elapsed="0.235990"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="PASS" start="2025-12-16T20:16:18.897368" elapsed="0.000000"/>
+</break>
+<status status="PASS" start="2025-12-16T20:16:18.897368" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:18.897368" elapsed="0.000000"/>
+</if>
+<status status="PASS" start="2025-12-16T20:16:18.659382" elapsed="0.237986"/>
+</iter>
+<status status="PASS" start="2025-12-16T20:16:18.659382" elapsed="0.237986"/>
+</while>
+<status status="PASS" start="2025-12-16T20:16:18.622398" elapsed="0.274970"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Fail" owner="BuiltIn">
+<arg>Erro ao preencher o campo ${locator}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-12-16T20:16:18.898369" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T20:16:18.898369" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:18.622398" elapsed="0.275971"/>
+</try>
+<arg>${input.adicionar_informacao}</arg>
+<arg>${informacao}</arg>
+<status status="PASS" start="2025-12-16T20:16:18.620391" elapsed="0.277978"/>
+</kw>
+<kw name="Press Key" owner="SeleniumLibrary">
+<arg>${input.adicionar_informacao}</arg>
+<arg>\\13</arg>
+<doc>Simulates user pressing key on element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:16:18.898369" elapsed="0.160990"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:16:12.547504" elapsed="6.511855"/>
+</kw>
+<kw name="Acessar Post da Pagina Produtos" owner="produtos">
+<kw name="Wait And Click Element" owner="customKeywords">
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-16T20:16:19.064359" elapsed="1.381918"/>
+</kw>
+<kw name="Click Element" owner="SeleniumLibrary">
+<msg time="2025-12-16T20:16:20.448278" level="INFO">Clicking element 'xpath=//*[@id="post-11038"]//h2/a'.</msg>
+<arg>${locator}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="PASS" start="2025-12-16T20:16:20.447277" elapsed="0.747471"/>
+</kw>
+<arg>${link.acessar_link_produtos}</arg>
+<status status="PASS" start="2025-12-16T20:16:19.062360" elapsed="2.132388"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:16:19.061360" elapsed="2.133388"/>
+</kw>
+<kw name="Validar Post de Produtos" owner="produtos">
+<kw name="Wait Element Should Contain Text" owner="customKeywords">
+<try>
+<branch type="TRY">
+<while condition="${True}" limit="10">
+<iter>
+<kw name="Wait Until Element Is Visible" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>300</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" start="2025-12-16T20:16:21.197749" elapsed="0.154989"/>
+</kw>
+<kw name="Run Keyword And Return Status" owner="BuiltIn">
+<kw name="Wait Until Element Contains" owner="SeleniumLibrary">
+<arg>${locator}</arg>
+<arg>${expectedText}</arg>
+<doc>Waits until the element ``locator`` contains ``text``.</doc>
+<status status="PASS" start="2025-12-16T20:16:21.353738" elapsed="0.031999"/>
+</kw>
+<msg time="2025-12-16T20:16:21.385737" level="INFO">${status} = True</msg>
+<var>${status}</var>
+<arg>Wait Until Element Contains</arg>
+<arg>${locator}</arg>
+<arg>${expectedText}</arg>
+<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
+<status status="PASS" start="2025-12-16T20:16:21.352738" elapsed="0.032999"/>
+</kw>
+<if>
+<branch type="IF" condition="${status}">
+<break>
+<status status="PASS" start="2025-12-16T20:16:21.386736" elapsed="0.000000"/>
+</break>
+<status status="PASS" start="2025-12-16T20:16:21.386736" elapsed="0.000000"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:21.385737" elapsed="0.000999"/>
+</if>
+<status status="PASS" start="2025-12-16T20:16:21.197749" elapsed="0.188987"/>
+</iter>
+<status status="PASS" start="2025-12-16T20:16:21.197749" elapsed="0.188987"/>
+</while>
+<status status="PASS" start="2025-12-16T20:16:21.197749" elapsed="0.188987"/>
+</branch>
+<branch type="EXCEPT">
+<kw name="Fail" owner="BuiltIn">
+<arg>Erro ao preencher o campo ${locator}</arg>
+<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<status status="NOT RUN" start="2025-12-16T20:16:21.387735" elapsed="0.000000"/>
+</kw>
+<status status="NOT RUN" start="2025-12-16T20:16:21.386736" elapsed="0.000999"/>
+</branch>
+<status status="PASS" start="2025-12-16T20:16:21.197749" elapsed="0.189986"/>
+</try>
+<arg>${text.validar_acesso_post}</arg>
+<arg>${textoPostProdutos}</arg>
+<status status="PASS" start="2025-12-16T20:16:21.196749" elapsed="0.190986"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:16:21.195747" elapsed="0.191988"/>
+</kw>
+<kw name="Close All Browsers" owner="SeleniumLibrary" type="TEARDOWN">
+<doc>Closes all open browsers and resets the browser cache.</doc>
+<status status="PASS" start="2025-12-16T20:16:21.388735" elapsed="6.696784"/>
+</kw>
+<status status="PASS" start="2025-12-16T20:16:08.285803" elapsed="19.800716"/>
+</test>
+<status status="PASS" start="2025-12-16T20:15:37.934930" elapsed="50.155594"/>
+</suite>
+<status status="PASS" start="2025-12-16T20:15:37.926931" elapsed="50.168588"/>
+</suite>
+<status status="PASS" start="2025-12-16T20:15:37.790938" elapsed="50.310581"/>
+</suite>
+<statistics>
+<total>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="2" fail="0" skip="0" id="s1" name="Web">Web</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1" name="Test">Web.Test</stat>
+<stat pass="2" fail="0" skip="0" id="s1-s1-s1" name="campoPesquisa">Web.Test.campoPesquisa</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

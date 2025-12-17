@@ -1,0 +1,7 @@
+text:
+  validar_texto_produtos:   xpath=//*[@id="primary"]/section/h1
+  validar_acesso_post:      xpath=//*[@id="post-11038"]//h1
+
+link:
+  acessar_link_produtos:    xpath=//*[@id="post-11038"]//h2/a
+
